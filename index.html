@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rise and Shine Autos & Properties</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
+        header { background: #003366; color: white; text-align: center; padding: 1em; }
+        nav { text-align: center; padding: 1em; background: #005599; }
+        nav a { color: white; text-decoration: none; padding: 10px 20px; }
+        .container { width: 80%; margin: auto; padding: 20px; background: white; }
+        .listing { display: flex; justify-content: space-between; margin-bottom: 20px; }
+        .listing img { width: 30%; border-radius: 10px; }
+        .listing div { width: 65%; }
+        footer { text-align: center; padding: 10px; background: #003366; color: white; margin-top: 20px; }
+    </style>
+    <script>
+        async function chatWithAI() {
+            let userMessage = document.getElementById("chatInput").value;
+            let chatBox = document.getElementById("chatBox");
+            if (userMessage.trim() !== "") {
+                chatBox.innerHTML += "<p><strong>You:</strong> " + userMessage + "</p>";
+                
+                let aiResponse = await getAIResponse(userMessage);
+                chatBox.innerHTML += "<p><strong>AI:</strong> " + aiResponse + "</p>";
+                
+                document.getElementById("chatInput").value = "";
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }
+        }
+
+        async function getAIResponse(userMessage) {
+            let responses = {
+                "hello": "Hello! How can I assist you today?",
+                "buy car": "We have a variety of cars available. What type are you looking for?",
+                "real estate": "We offer luxury and affordable real estate options. Do you have a specific location in mind?",
+                "finance": "We provide financing options for both cars and real estate. Would you like to know more?",
+                "update listings": "Our AI continuously updates listings from verified sources worldwide. Check back often!",
+                "fraud detection": "We use AI-powered fraud detection to verify sellers and ensure secure transactions.",
+                "latest deals": "Here are the latest deals on cars and real estate, updated in real-time.",
+                "verified sellers": "All sellers on our platform are verified using AI fraud detection measures."
+            };
+            
+            return responses[userMessage.toLowerCase()] || "I'm here to help! Please provide more details about what you need.";
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Rise and Shine Autos & Properties</h1>
+        <p>Drive Your Dream, Live Your Vision</p>
+        <p>Based in Nigeria, Connecting You to Verified Auto & Real Estate Deals Worldwide</p>
+    </header>
+    <nav>
+        <a href="#cars">Auto Listings</a>
+        <a href="#real-estate">Real Estate Listings</a>
+        <a href="#investment">Investment Opportunities</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="container">
+        <h2 id="cars">Available Cars</h2>
+        <div class="listing">
+            <img src="car1.jpg" alt="Car Image">
+            <div>
+                <h3>2023 BMW X5</h3>
+                <p>Price: $55,000</p>
+                <p>Luxury SUV with premium features.</p>
+                <p>Source: Verified International Dealer</p>
+                <p><strong>Payment Options:</strong> Bank Transfer, Cryptocurrency, Installment Plans</p>
+            </div>
+        </div>
+        
+        <h2 id="real-estate">Real Estate Listings</h2>
+        <div class="listing">
+            <img src="house1.jpg" alt="House Image">
+            <div>
+                <h3>Modern Villa in California</h3>
+                <p>Price: $1,200,000</p>
+                <p>Spacious villa with ocean views.</p>
+                <p>Source: Trusted Global Property Partner</p>
+                <p><strong>Financing Available:</strong> Mortgage, Lease-to-Own, Direct Purchase</p>
+            </div>
+        </div>
+        
+        <h2 id="investment">Investment Opportunities</h2>
+        <p>Explore exclusive deals that bundle auto and real estate purchases. Save more when you invest in both your dream home and vehicle.</p>
+        <p>We work with verified companies worldwide to ensure safe transactions.</p>
+        <p><strong>Secure Transactions:</strong> AI-powered fraud detection and escrow services available.</p>
+    </div>
+    
+    <div class="container">
+        <h2>AI Chat Assistant</h2>
+        <div id="chatBox" style="border: 1px solid #ccc; padding: 10px; height: 200px; overflow-y: scroll;"></div>
+        <input type="text" id="chatInput" placeholder="Ask me anything...">
+        <button onclick="chatWithAI()">Send</button>
+    </div>
+    
+    <footer>
+        <p>Contact Us: info@riseandshineautosandproperties.com | Phone: +234 123 456 7890</p>
+        <p>For Auto Inquiries: autos@riseandshineautosandproperties.com</p>
+        <p>For Property Inquiries: properties@riseandshineautosandproperties.com</p>
+    </footer>
+</body>
+</html>
